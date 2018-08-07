@@ -19,17 +19,17 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  var log = 'Website is under maintenance';
-  console.log(log);
-  fs.appendFile('server.log', log + '\n', (err) => {
-    if(err) {
-      console.log('Unable to append to server.log');
-    }
-  });
-  res.render('maintenance.hbs');
-  // next();
-});
+// app.use((req, res, next) => {
+//   var log = 'Website is under maintenance';
+//   console.log(log);
+//   fs.appendFile('server.log', log + '\n', (err) => {
+//     if(err) {
+//       console.log('Unable to append to server.log');
+//     }
+//   });
+//   res.render('maintenance.hbs');
+//   // next();
+// });
 
 app.use(express.static(__dirname + '/public'));
 
