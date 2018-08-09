@@ -1,0 +1,48 @@
+1. We can use express by using following scripts.
+   const express = require('express');
+   var app = express();
+
+2. We can start the server using express and listen to request on specific port number.
+eg.
+app.listen(<port>, () => {
+  console.log(`Server is up on port ${port}`);
+});
+
+3. We can listen to requests on specific route paths and respond to them.
+eg.
+app.get('/bad', (req, res) =>{
+  res.send({
+    error: 'Unable to handle request'
+  });
+});
+
+4. We can send html content type using send or a json object.
+eg.
+res.send('<h1>welcome to express</h1>');
+res.send({
+  error: 'Unable to handle request'
+});
+
+5. We can serve static directory by using following script.
+app.use(express.static(__dirname + '/public'));
+
+
+6. Data binding can be done using handlebar plugin for express. We can set view engine of express to handlebar.
+eg. app.set('view engine', 'hbs');
+
+7. Handlebar allows us to have databinding and components structure like angular.
+We can pass parameter object to hbs template while calling render method.
+In order to use vales passed as parameters, we need to wrap parameter name inside curly brackets.
+eg.
+res.render('home.hbs',{
+  pageTitle: 'Home Page',
+  welcomeMessage: 'Hi Shriniwas',
+  likes: ['gaming', 'vr']
+});
+
+<head>
+  <meta charset="utf-8">
+  <title>{{pageTitle}}</title>
+</head>
+
+8.We use partials to create components that can be used inside other templates.
