@@ -46,3 +46,18 @@ res.render('home.hbs',{
 </head>
 
 8.We use partials to create components that can be used inside other templates.
+eg. {{> header}}
+
+9. Middleware allows you to add functionality to express.
+In order to register middleware we call app.use(). Inside app .
+eg.
+app.use(express.static(__dirname + '/public'));  we used this to teach express to use static directory to read from
+
+10. app.use takes a function that takes three arguments ie. (req, res, next)
+eg.
+app.use((req, res, next) => {
+  next();
+});
+
+
+11. Next is used to let express know when the middleware function is done. You can either block or let the code run by removing next method or adding next method.
